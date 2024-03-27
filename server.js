@@ -92,14 +92,14 @@ const requestListener = (request, response) => {
             Status: 'fail',
             Message: `參數錯誤，或無此代辦 ID`,
           };
-          responseHandler(response, 400, respObj);
+          responseHandler(response, 400, JSON.stringify(respObj));
         }
       } catch (err) {
         const respObj = {
           Status: 'fail',
           Message: `參數錯誤，或無此代辦 ID`,
         };
-        responseHandler(response, 400, respObj);
+        responseHandler(response, 400, JSON.stringify(respObj));
       }
     });
   } else if (request.method == 'OPTIONS') {
@@ -110,7 +110,7 @@ const requestListener = (request, response) => {
       Status: 'fail',
       Message: `無此路由`,
     };
-    responseHandler(response, 404, respObj);
+    responseHandler(response, 404, JSON.stringify(respObj));
   }
 };
 
