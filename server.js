@@ -1,37 +1,7 @@
 //------------------- module 引用 -------------------
 const http = require('http');
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
-const dotenv = require('dotenv');
-dotenv.config({ path: './config.env' });
 const { v4: uuidv4 } = require('uuid');
 const responseHandler = require('./responseHandler');
-
-//------------------- 資料庫連線 -------------------
-const uri = process.env.CONNECTION_STR.replace(
-  '<account>',
-  process.env.MONGO_ACC
-).replace('<password>', process.env.MONGO_PASSWORD);
-
-mongoose
-  .connect(uri)
-  .then(() => {
-    console.log('資料庫連線成功');
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
-  //建立 Todo 的 Schema
-  const todoSchema = new Schema({
-    title: {
-      type: String,
-      require:[true,"事項 title 必填"]
-    },
-    status: Boolean,
-    createDate: Date, 
-    updateDate: Date
-  });
 
 //------------------- 請求監聽 -------------------
 const requestListener = (request, response) => {
@@ -39,7 +9,6 @@ const requestListener = (request, response) => {
   request.on('data', (chunk) => {
     body += chunk;
   });
-
   if (request.url == '/todos' && request.method == 'GET') {
     const respObj = {
       status: 'success',
@@ -48,22 +17,10 @@ const requestListener = (request, response) => {
     };
     responseHandler(response, 200, JSON.stringify(respObj));
   } else if (request.url == '/todos' && request.method == 'POST') {
-    request.on('end', () => {
+    request.on('end', async () => {
       try {
         const title = JSON.parse(body).title;
         if (title != undefined) {
-          const Todo = mongoose.model('Todo', todoSchema);
-          const todo = new Todo({
-            title: title,
-            createDate: Date.now(),
-            updateDate: null,
-          });
-          todo.save().then(()=>{
-            console.log('新增成功');
-          }).catch((error)=>{
-            console.log('新增失敗');
-          });
-
           const respObj = {
             status: 'success',
             message: `新增代辦事項成功`,
