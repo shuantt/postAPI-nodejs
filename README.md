@@ -1,5 +1,5 @@
 # 六角 Node.js 直播班 
-## v1.0.0 預習作業 TodoListKata
+## v1.0.0 - 預習作業 TodoListKata
 - 使用原生 Node.js 語法
 - 使用假資料
 - 佈署至 Rendor
