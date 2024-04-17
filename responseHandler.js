@@ -1,4 +1,4 @@
-const responseHandler = (response, apiStatus, jsonResp) => {
+const responseHandler = (res, apiStatus, status, message, respData) => {
   const headers = {
     'Access-Control-Allow-Headers':
       'Content-Type, Authorization, Content-Length, X-Requested-With',
@@ -7,9 +7,15 @@ const responseHandler = (response, apiStatus, jsonResp) => {
     'Content-Type': 'application/json',
   };
 
-  response.writeHead(apiStatus, headers);
-  response.write(jsonResp);
-  response.end();
+  const respObj = {
+    status: status,
+    message: message,
+    data: respData
+  };
+
+  res.writeHead(apiStatus, headers);
+  res.write(JSON.stringify(respObj));
+  res.end();
 };
 
 module.exports = responseHandler;
