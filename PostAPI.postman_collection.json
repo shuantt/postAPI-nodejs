@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "5b1e1287-f01c-4963-9e12-b04431211d33",
+		"name": "PostAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23424573"
+	},
+	"item": [
+		{
+			"name": "取得代辦事項",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postapi-node-js.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"postapi-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增代辦事項",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\":\"終於回家了，好累\",\r\n    \"name\":\"shuantt\",\r\n    \"images\":\"https://domain/photo1231456\",\r\n    \"likes\":10000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postapi-node-js.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"postapi-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除全部代辦事項",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postapi-node-js.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"postapi-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除單筆代辦事項",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postapi-node-js.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"postapi-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改單筆代辦事項",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\":\"你好嗎\",\r\n    \"name\":\"shuantt\",\r\n    \"image\":\"https:domain/photo12345678\",\r\n    \"likes\":\"100005\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postapi-node-js.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"postapi-node-js",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
